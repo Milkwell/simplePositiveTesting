@@ -1,5 +1,4 @@
-import { $ } from '@wdio/globals'
-import Page from './page.js';
+import Page from './websitePage.js';
 
 class LoginPage extends Page {
     get inputUsername () {
@@ -10,14 +9,14 @@ class LoginPage extends Page {
         return $('#password');
     }
 
-    get btnSubmit () {
-        return $('button[type="submit"]');
+    get btnLogin () {
+        return $('input[type="submit"]');
     }
 
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+        await this.btnLogin.click();
     }
 
     open () {
